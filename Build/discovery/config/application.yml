@@ -1,0 +1,33 @@
+---
+spring:
+  profiles:  peer01
+eureka:
+  instance:
+    appname: ServerRegister
+    hostname: localhost
+    instance-id: ${spring.application.name}:${random.value}
+  server:
+    #关闭自我保护
+    enable-self-preservation: false
+    #清除无效节点的时间间隔
+    eviction-interval-timer-in-ms: 4000
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+---  
+spring:
+  profiles:  peer02
+eureka:
+  instance:
+    appname: ServerRegister
+    hostname: localhost
+    instance-id: ${spring.application.name}:${random.value}
+  server:
+    enable-self-preservation: false
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  
