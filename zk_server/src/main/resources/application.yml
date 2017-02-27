@@ -1,0 +1,18 @@
+server:
+  port: 9997
+spring:
+  application:
+    #服务名称,CLIENT端用来享受服务
+    name: queryTest
+  cloud:
+    zookeeper:
+      #ZK_ADDRESS
+      connect-string: host219:2181,host223:2181,host224:2181
+      discovery:
+        register: true
+        #服务地址
+        instance-host: 10.150.27.29
+        #服务端口
+        instance-port: ${server.port}
+        enabled: true
+    

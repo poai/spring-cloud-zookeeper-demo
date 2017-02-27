@@ -1,0 +1,14 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: queryTest
+  cloud:
+    zookeeper:
+      enabled: true
+      connect-string: host219:2181,host223:2181,host224:2181
+      #默认的服务注册节点,
+      discovery:
+        root: /services
+        #客户端节点不注册
+        register: false
