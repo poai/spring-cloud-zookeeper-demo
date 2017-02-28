@@ -6,7 +6,7 @@
 	<groupId>cn.com.xiaofen</groupId>
 	<artifactId>zk_client</artifactId>
 	<version>1.0.0.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>zk_client</name>
 	<description>Demo project for Spring Boot</description>
@@ -46,6 +46,12 @@
 			<artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
 			<version>1.0.2.RELEASE</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-freemarker -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -3,7 +3,7 @@ server:
 spring:
   application:
     #服务名称,CLIENT端用来享受服务
-    name: queryTest
+    name: USERSERVER
   cloud:
     zookeeper:
       #ZK_ADDRESS
