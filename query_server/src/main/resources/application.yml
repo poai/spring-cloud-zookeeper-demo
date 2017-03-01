@@ -6,12 +6,13 @@ spring:
 eureka:
   instance:
     #虚拟主机名称
-    virtual-host-name: itgsTest
+    virtual-host-name: QueryServer
     #心跳时间间隔
     lease-renewal-interval-in-seconds: 10
     #无心跳多久后,该服务失效
     lease-expiration-duration-in-seconds: 30
     appname: 查询服务
+    #Server实例ID
     instance-id: ${spring.application.name}:${random.value}
     
   client:

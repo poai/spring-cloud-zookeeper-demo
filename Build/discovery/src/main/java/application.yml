@@ -1,6 +1,11 @@
+server:
+  port: 8761
+spring:
+  profiles:
+    active: peer1
 ---
 spring:
-  profiles:  peer01
+  profiles:  peer1
 eureka:
   instance:
     appname: ServerRegister
@@ -18,7 +23,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 ---  
 spring:
-  profiles:  peer02
+  profiles:  peer2
 eureka:
   instance:
     appname: ServerRegister

@@ -10,19 +10,17 @@ import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
 
 public class RibbonConfig {
-
 	@Autowired
 	IClientConfig ribbonClientConfig;
 
 	@Bean
 	public IPing ribbonPing(IClientConfig config) {
-		return new PingUrl();// we override default Iping which is a NoOpPing
+		return new PingUrl();
 	}
 
 	@Bean
 	public IRule ribbonRule(IClientConfig config) {
-		return new AvailabilityFilteringRule(); // we override the default
-												// ZoneAvoidanceRule
+		return new AvailabilityFilteringRule();
 	}
 
 }

@@ -1,6 +1,0 @@
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: true
-    service-url:
-      defaultZone: http://host236:8761/eureka/,http://host235:8761/eureka/
