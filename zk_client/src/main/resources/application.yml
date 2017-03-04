@@ -10,4 +10,8 @@ spring:
       discovery:
         root: /services
         register: true
-        
+  datasource:
+    url: jdbc:oracle:thin:@host233:1521/PROD
+    username: tvc_itgs_test
+    password: ehl1234
+    driver-class-name : oracle.jdbc.driver.OracleDriver
