@@ -30,7 +30,6 @@ public class ZkClientApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ZkClientApplication.class, args);
 	}
-
 	/* Spring JDBC */
 	@Bean
 	public JdbcTemplate primaryJdbcTemplate(DataSource dataSource) {
