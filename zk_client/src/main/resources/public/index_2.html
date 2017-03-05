@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		名字 <input ng-model="name" />
+		<!-- 双向数据绑定 -->
+		<h1>你输入了{{name}}</h1>
+		<!-- 表单验证 -->
+		<form name="myForm" ng-init="myText = 'test@runoob.com'">
+			Email: <input type="email" name="myAddress" ng-model="text">
+			<span ng-show="myForm.myAddress.$error.email">不是一个合法的邮箱地址</span>
+			<h1>状态</h1>
+			{{myForm.myAddress.$valid}} {{myForm.myAddress.$dirty}}
+			{{myForm.myAddress.$touched}}
+		</form>
+		<br>
+		<div ng-controller="TT">
+			<span>{{name}}</span>
+			<!-- 使用过滤器,
+				uppercase:全部转大写
+			 -->
+			<span>{{today | uppercase}}</span>
+		</div>
+	</div>
+	<script>
+		var app = angular.module("myApp", []);
+		/* AJ作用域,创建控制器时候可以将$scope当作参数使用
+			.向$scope中添加对象时,HTML中就可以获取这些属性
+			.scope作用范围
+			.rootScope 根作用范围,在该作用域中定义的值可以在各个controller中使用;
+		*/
+		app.controller("myCtrl", function($scope) {
+			/* 向APP域中绑定变量 */
+			//$scope.name = "Xiao Fen"
+		});
+		/* AJ控制器
+		
+			ng-controller:用来定义控制器,
+		*/
+		app.controller("TT",function($scope,$rootScope){
+			/* 向当前作用于中设置值 */
+			$scope.name="小芬";
+			/* 向根作用域中设置值 */
+			$rootScope.name="XXX";
+			$rootScope.today="niHaoMa";
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 定义元素为AJ所有 -->
+	<div ng-app=""
+		ng-init="names=['Jani','Hege','Kai'];firstName='John';lastName='Doe';person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40]">
+		<p>
+			<!-- 将输入域的值绑定到 AJ变量中 -->
+			名字 : <input type="text" ng-model="name">
+		</p>
+		<!-- AJ表达式 -->
+		<h1>Hello {{name}}</h1>
+		<h1>Hello {{100-200}}</h1>
+		<h1>Hello {{"xiaofen"+"你好"}}</h1>
+		<h1>Hello {{100*200}}</h1>
+		<h1>Hello {{firstName}}</h1>
+		<h1>Hello {{person.lastName}}</h1>
+		<h1>Hello {{points[2]}}</h1>
+		<!-- AJ 指令:扩展的HTML属性
+			ng-app:初始化一个AJ应用程序
+			ng-init:初始化应用程序数据
+			ng-model:将元素值绑定到应用程序
+			
+		 -->
+		<h2>价格计算器</h2>
+
+		数量： <input type="number" ng-model="quantity"> 价格： <input
+			type="number" ng-model="price">
+
+		<p>
+			<b>总价：</b> {{ quantity * price }}
+		</p>
+		<br>
+		<p>使用 ng-repeat 来循环数组</p>
+		<ul>
+			<li ng-repeat="x in names">{{ x }}</li>
+		</ul>
+
+	</div>
+	<script>
+		/* AJ模块定义 */
+		var app = angular.module('myApp', []);
+		/* AJ控制器定义 */
+		app.controller('myCtrl', function($scope) {
+			$scope.name = "John";
+			$scope.lastName = "Doe";
+		});
+	</script>
+</body>
+</html>

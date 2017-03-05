@@ -4,11 +4,40 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script
+	src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <script src="js/index.js"></script>
 </head>
 <body>
-	<a href="" id="info">info</a>
+	<a href="http://it:9990/byonetListFreeMaker" id="info">/byonetListFreeMaker</a>
 	<br>
-	<a href="" id="list">list</a>
+	<a href="http://it:9990/homePage" id="list">/homePage</a>
+	<hr>
+	<h1>AngularJS 测试</h1>
+	<div ng-app="myApp" ng-controller="customersCtrl">
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>NAME</td>
+				<td>X</td>
+				<td>Y</td>
+				<td>HAND</td>
+			</tr>
+			<tr ng-repeat="x in names">
+				<td><a href="">{{ x.kkid }}</a></td>
+				<td>{{ x.kkmc }}</td>
+				<td>{{ x.x }}</td>
+				<td>{{ x.y }}</td>
+				<td><a href="">info</a></td>
+			</tr>
+		</table>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('customersCtrl', function($scope, $http) {
+				$http.get("/byonetList").success(function(response) {
+					$scope.names = response;
+				});
+			});
+		</script>
 </body>
 </html>

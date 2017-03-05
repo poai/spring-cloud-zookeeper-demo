@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+<script
+	src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="testService">
+		<span>{{myUrl}}</span>
+		<div>{{byonetInfo}}</div>
+		<!-- angularjs 选择框 -->
+		<div>
+			<select ng-model="byonet1" ng-options=" x.kkmc for x in tgsList">
+				<option value="-1">请选择日期</option>
+			</select> <span>{{byonet1.kkid}}</span> <br> <select>
+				<option ng-repeat=" x in tgsList " ng-model="byonet2"
+					value="{{x.kkid}}">{{x.kkmc}}</option>
+			</select>
+			<table>
+				<tr>
+					<td>INDEX<td>
+					<td>KKID<td>
+					<td>KKMC<td>
+					<td>X<td>
+					<td>Y<td>
+				</tr>
+				<tr ng-repeat="x in tgsList | orderBy:'kkid'">
+					<td>{{$index +1}}<td>
+					<td>{{x.kkid}}<td>
+					<td>{{x.kkmc}}<td>
+					<td>{{x.x}}<td>
+					<td>{{x.y}}<td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script>
+		/* angularjs service
+			$location :位置服务
+			$http:网络服务
+				
+			$timeout:时间服务
+			$interval:时间服务
+		 */
+		var app = angular.module("myApp", []);
+		app.controller("testService", function($scope, $location, $http) {
+			$scope.myUrl = $location.absUrl();
+			$http.get("/byonetList/420100000000000149").success(
+					function(result) {
+						$scope.byonetInfo = result[0];
+					});
+			$http.get("/byonetList").success(function(result) {
+				$scope.byonet1 = result[0];
+				$scope.byonet2 = result[0];
+				$scope.tgsList = result;
+			});
+		});
+	</script>
+</body>
+</html>
