@@ -16,8 +16,8 @@
   		<tr>
   			<td>${byonet.kkid}</td>
   			<td>${byonet.kkmc}</td>
-  			<td>${byonet.x}</td>
-  			<td>${x.y}</td>
+  			<td>${ (byonet.x)! }</td>
+  			<td>${ (byonet.y)!}</td>
   		</tr>
   	</#list>
   </table>
