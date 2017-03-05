@@ -1,6 +1,7 @@
 package cn.com.xiaofen.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -22,6 +23,18 @@ public class ByonetController {
 		BeanPropertyRowMapper<Byonet> rowMapper = new BeanPropertyRowMapper<Byonet>(Byonet.class);
 		return jdbcTemplate.query(sql, rowMapper);
 	}
+	
+	
+	@RequestMapping("/byonetListFreeMaker")
+	public String byonetListFreeMaker(Map<String,Object> model) {
+		String sql = "select kkid,kkmc,x,y from t_itgs_tgsinfo";
+		BeanPropertyRowMapper<Byonet> rowMapper = new BeanPropertyRowMapper<Byonet>(Byonet.class);
+		List<Byonet> byonets=jdbcTemplate.query(sql, rowMapper);
+		model.put("byonets", byonets);
+		return "byonetList";
+	}
+	
+	
 	@RequestMapping("/byonetList/{kkid}")
 	public List<Byonet> byonetListById(@PathVariable(required=true,name="kkid")String kkid) {
 		String sql = "select kkid,kkmc,x,y from t_itgs_tgsinfo where kkid=?";
