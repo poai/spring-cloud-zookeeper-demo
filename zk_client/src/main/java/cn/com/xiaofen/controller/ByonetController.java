@@ -15,9 +15,6 @@ import cn.com.xiaofen.bean.Byonet;
 public class ByonetController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
-
-	
 	@RequestMapping("/byonetListFreeMaker")
 	public String byonetListFreeMaker(Map<String,Object> model) {
 		String sql = "select kkid,kkmc,x,y from t_itgs_tgsinfo";
@@ -26,5 +23,4 @@ public class ByonetController {
 		model.put("byonets", byonets);
 		return "byonetList";
 	}
-
 }
